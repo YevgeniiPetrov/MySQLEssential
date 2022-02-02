@@ -19,9 +19,9 @@ create table employee
 create table post 
 (
 	id int auto_increment not null,
-    title varchar(32) unique not null,
-    salary int not null,
-    primary key(id)
+	title varchar(32) unique not null,
+	salary int not null,
+	primary key(id)
 );
 
 alter table employee
@@ -34,26 +34,26 @@ add constraint fk_employee_post
 create table employee_personal_data
 (
 	employee_id int,
-    married boolean,
+	married boolean,
 	date_of_birth date not null,
 	address varchar(128),
-    primary key(employee_id),
-    foreign key(employee_id) references employee(id)
+	primary key(employee_id),
+	foreign key(employee_id) references employee(id)
 );
 
 insert into post
 	(title, salary)
 values
 	('Главный директор', 20000),
-    ('Менеджер', 15000),
-    ('Рабочий', 10000);
+	('Менеджер', 15000),
+	('Рабочий', 10000);
     
 insert into employee
 	(first_name, middle_name, last_name, phone, post_id)
 values	
 	('Анна', 'Вадимовна', 'Иванова', '+380931111111', 2),
 	('Максим', 'Олегович', 'Петров', '+380634444444', 1),
-    ('Юлия', 'Андреевна', 'Сидорова', '+380672222222', 3),
+	('Юлия', 'Андреевна', 'Сидорова', '+380672222222', 3),
 	('Виктор', 'Иванович', 'Скворцов', '+380503333333', 2);
     
 insert into employee_personal_data
@@ -62,4 +62,4 @@ values
 	(1, false, str_to_date('21.05.1993', '%d.%m.%YYYY'), 'ул. Победы, 47, кв. 93'),
 	(2, true, str_to_date('14.08.1978', '%d.%m.%YYYY'), 'ул. Шевченко, 5, кв. 10'),
 	(3, null, str_to_date('27.11.1981', '%d.%m.%YYYY'), 'ул. Франко, 89, кв. 47'),
-    (4, true, str_to_date('10.06.1990', '%d.%m.%YYYY'), 'ул. Шевченко, 197, кв. 89');
+	(4, true, str_to_date('10.06.1990', '%d.%m.%YYYY'), 'ул. Шевченко, 197, кв. 89');
